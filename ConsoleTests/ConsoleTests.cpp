@@ -3,18 +3,39 @@
 
 #include <iostream>
 #include <memory>
+#include <math.h>
+#include <chrono>
+#include <thread>
+#include <Windows.h>
+
+#include "Circle.h"
 #include "../ConsoleCommon/oof.h"
 #include "../ConsoleCommon/ScreenWrapper.h"
-#include "../ConsoleCommon/TestClass.h"
 
 int main()
 {
-    const auto t = std::make_shared<TestClass>();
-    std::cout << t->testMethod() << std::endl;
+    using namespace std;
     const auto sw = std::make_shared<ScreenWrapper>();
     const auto dimensions = sw->GetScreenCellDimensions();
-    std::cout << "Dimensions: (" << std::get<0>(dimensions) << "," << std::get<1>(dimensions) << ")" << std::endl;
-    std::cin;
+    std::cout << "Dimensions: (" << dimensions.x << "," << dimensions.y << ")" << std::endl;
+    int r;
+    std::cin >> r;
+    auto c = std::make_shared<Circle>();
+    c->radius = r;
+    c->color = oof::color(255, 255, 255);
+    c->pos = Vector2D<double>(50, 50);
+    sw->AddDrawObject("Circle", c);
+
+    string test = "a";
+    while(!(GetAsyncKeyState('Q') & 1))
+    {
+        sw->Draw();
+        sw->GetDrawObject("Circle")->pos.x = std::fmod(sw->GetDrawObject("Circle")->pos.x + 5,100.0);
+
+        std::this_thread::sleep_for(50ms);
+    }
+	
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
