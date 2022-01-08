@@ -10,7 +10,7 @@
 
 ScreenWrapper::ScreenWrapper()
 {
-	const auto size = ScreenWrapper::GetScreenCellDimensions();
+	const auto size = GetScreenCellDimensions();
 	width = size.x;
 	height = size.y;
 	ps = std::make_unique<oof::pixel_screen>(width,height);
@@ -59,17 +59,17 @@ auto ScreenWrapper::GetScreenResolution() const -> Vector2D<double>
 	return { 100.0 / ps->get_width(),100.0 / ps->get_halfline_height() };
 }
 
-auto ScreenWrapper::SetPixel(Vector2D<double> pos, oof::color c) -> void
+auto ScreenWrapper::SetPixel(Vector2D<double> pos, oof::color c) const -> void
 {
 	setPixel(ConvertToScreenSpace(pos), c);
 }
 
-auto ScreenWrapper::GetPixel(Vector2D<double> pos) -> oof::color&
+auto ScreenWrapper::GetPixel(Vector2D<double> pos) const -> oof::color&
 {
 	return getPixel(ConvertToScreenSpace(pos));
 }
 
-auto ScreenWrapper::setPixel(Vector2D<int> pos, oof::color c) -> void
+auto ScreenWrapper::setPixel(Vector2D<int> pos, oof::color c) const -> void
 {
 	if(!ps->is_in(pos.x,pos.y))
 	{
@@ -80,17 +80,16 @@ auto ScreenWrapper::setPixel(Vector2D<int> pos, oof::color c) -> void
 	col = c;
 }
 
-auto ScreenWrapper::getPixel(Vector2D<int> pos) -> oof::color&
+auto ScreenWrapper::getPixel(Vector2D<int> pos) const -> oof::color&
 {
 	return ps->get_color(pos.x, pos.y);
 }
 
 auto ScreenWrapper::Draw() -> void
 {
-	const auto CurrentDimensions = GetScreenCellDimensions();
-	if(ps->get_width() != CurrentDimensions.x || ps->get_halfline_height() != CurrentDimensions.y)
+	if(ps->get_width() != width || ps->get_halfline_height() != height)
 	{
-		ps = std::make_unique<oof::pixel_screen>(CurrentDimensions.x, CurrentDimensions.y);
+		ps = std::make_unique<oof::pixel_screen>(width, height);
 	}
 
 	ps->clear();

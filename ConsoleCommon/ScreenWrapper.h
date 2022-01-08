@@ -27,10 +27,10 @@ public:
 
 	auto GetScreenResolution() const -> Vector2D<double>;
 
-	auto SetPixel(Vector2D<double> pos, oof::color c) -> void;
-	auto GetPixel(Vector2D<double> pos) -> oof::color&;
-	auto setPixel(Vector2D<int> pos, oof::color c) -> void;
-	auto getPixel(Vector2D<int> pos) -> oof::color&;
+	auto SetPixel(Vector2D<double> pos, oof::color c) const -> void;
+	auto GetPixel(Vector2D<double> pos) const -> oof::color&;
+	auto setPixel(Vector2D<int> pos, oof::color c) const -> void;
+	auto getPixel(Vector2D<int> pos) const -> oof::color&;
 
 	auto Draw() -> void;
 	auto Update() const -> void;

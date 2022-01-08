@@ -14,6 +14,7 @@ int main()
     while (!(GetAsyncKeyState('Q') & 1))
     {
         sw->Draw();
+        sw->Update();
 
         std::this_thread::sleep_for(50ms);
     }
