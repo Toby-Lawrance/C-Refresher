@@ -13,6 +13,9 @@ class ScreenWrapper
 {
 public:
 	ScreenWrapper();
+	ScreenWrapper(Vector2D<int> dims);
+
+	int width, height;
 
 	std::unique_ptr<oof::pixel_screen> ps;
 
@@ -30,6 +33,7 @@ public:
 	auto getPixel(Vector2D<int> pos) -> oof::color&;
 
 	auto Draw() -> void;
+	auto Update() const -> void;
 
 	auto AddDrawObject(std::string id, std::shared_ptr<DrawableObject> obj) -> void;
 	std::shared_ptr<DrawableObject> GetDrawObject(std::string id);

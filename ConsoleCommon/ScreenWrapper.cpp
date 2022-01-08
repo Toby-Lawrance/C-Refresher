@@ -11,7 +11,16 @@
 ScreenWrapper::ScreenWrapper()
 {
 	const auto size = ScreenWrapper::GetScreenCellDimensions();
-	ps = std::make_unique<oof::pixel_screen>(size.x,size.y);
+	width = size.x;
+	height = size.y;
+	ps = std::make_unique<oof::pixel_screen>(width,height);
+}
+
+ScreenWrapper::ScreenWrapper(Vector2D<int> dims)
+{
+	width = dims.x;
+	height = dims.y;
+	ps = std::make_unique<oof::pixel_screen>(width, height);
 }
 
 auto ScreenWrapper::GetScreenCellDimensions() -> Vector2D<int>
@@ -92,6 +101,17 @@ auto ScreenWrapper::Draw() -> void
 	}
 
 	FastPrint(ps->get_string());
+}
+
+auto ScreenWrapper::Update() const -> void
+{
+	static std::chrono::time_point<std::chrono::steady_clock> lastUpdate = std::chrono::steady_clock::now();
+	const std::chrono::duration<std::chrono::microseconds> delta(std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - lastUpdate));
+	for(const auto& object : screenObjects)
+	{
+		object.second->Update(delta);
+	}
+	lastUpdate = std::chrono::steady_clock::now();
 }
 
 auto ScreenWrapper::AddDrawObject(std::string id, std::shared_ptr<DrawableObject> obj) -> void

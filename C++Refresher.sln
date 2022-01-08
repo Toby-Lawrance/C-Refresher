@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleCommon", "ConsoleCom
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleTests", "ConsoleTests\ConsoleTests.vcxproj", "{1EB74B2D-AEFA-4C9E-9747-C1E47C3E6B08}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphicsProgram", "GraphicsProgram\GraphicsProgram.vcxproj", "{93E335C5-AE3C-4425-8897-35168AFC62BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{1EB74B2D-AEFA-4C9E-9747-C1E47C3E6B08}.Release|x64.Build.0 = Release|x64
 		{1EB74B2D-AEFA-4C9E-9747-C1E47C3E6B08}.Release|x86.ActiveCfg = Release|Win32
 		{1EB74B2D-AEFA-4C9E-9747-C1E47C3E6B08}.Release|x86.Build.0 = Release|Win32
+		{93E335C5-AE3C-4425-8897-35168AFC62BD}.Debug|x64.ActiveCfg = Debug|x64
+		{93E335C5-AE3C-4425-8897-35168AFC62BD}.Debug|x64.Build.0 = Debug|x64
+		{93E335C5-AE3C-4425-8897-35168AFC62BD}.Debug|x86.ActiveCfg = Debug|Win32
+		{93E335C5-AE3C-4425-8897-35168AFC62BD}.Debug|x86.Build.0 = Debug|Win32
+		{93E335C5-AE3C-4425-8897-35168AFC62BD}.Release|x64.ActiveCfg = Release|x64
+		{93E335C5-AE3C-4425-8897-35168AFC62BD}.Release|x64.Build.0 = Release|x64
+		{93E335C5-AE3C-4425-8897-35168AFC62BD}.Release|x86.ActiveCfg = Release|Win32
+		{93E335C5-AE3C-4425-8897-35168AFC62BD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

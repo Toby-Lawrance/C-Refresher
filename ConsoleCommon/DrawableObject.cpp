@@ -4,3 +4,7 @@
 void DrawableObject::Draw(ScreenWrapper& sw)
 {
 }
+
+void DrawableObject::Update(std::chrono::duration<std::chrono::microseconds> deltaTime)
+{
+}

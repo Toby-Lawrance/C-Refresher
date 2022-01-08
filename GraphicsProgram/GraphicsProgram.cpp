@@ -1,15 +1,22 @@
-// HelloWorld.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// GraphicsProgram.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
-#include "Exercises.h"
-
+#include <thread>
+#include <Windows.h>
+#include "../ConsoleCommon/ScreenWrapper.h"
 
 int main()
 {
-    std::cout << "Hello Aya!\n";
+    using namespace std;
+    const auto sw = std::make_shared<ScreenWrapper>();
 
-    //PrepareExercises();
+    while (!(GetAsyncKeyState('Q') & 1))
+    {
+        sw->Draw();
+
+        std::this_thread::sleep_for(50ms);
+    }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
