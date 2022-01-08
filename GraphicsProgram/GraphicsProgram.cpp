@@ -1,10 +1,12 @@
 // GraphicsProgram.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include "../ConsoleCommon/oof.h"
+#include "../ConsoleCommon/ScreenWrapper.h"
 #include <iostream>
 #include <thread>
 #include <Windows.h>
-#include "../ConsoleCommon/ScreenWrapper.h"
+
 
 int main()
 {

@@ -18,8 +18,10 @@
     <ClCompile Include="HelloWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Exercises.h">
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Exercises.h">
       <Filter>Header Files</Filter>
-    </ClCompile>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -14,7 +14,7 @@ public:
 
 	virtual ~DrawableObject() = default;
 	virtual void Draw(ScreenWrapper& sw);
-	virtual void Update(std::chrono::duration<std::chrono::microseconds> deltaTime);
+	virtual void Update(std::chrono::microseconds deltaTime);
 	Vector2D<double> pos;
 };
 

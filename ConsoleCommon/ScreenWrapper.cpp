@@ -105,7 +105,7 @@ auto ScreenWrapper::Draw() -> void
 auto ScreenWrapper::Update() const -> void
 {
 	static std::chrono::time_point<std::chrono::steady_clock> lastUpdate = std::chrono::steady_clock::now();
-	const std::chrono::duration<std::chrono::microseconds> delta(std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - lastUpdate));
+	const auto delta(std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - lastUpdate));
 	for(const auto& object : screenObjects)
 	{
 		object.second->Update(delta);

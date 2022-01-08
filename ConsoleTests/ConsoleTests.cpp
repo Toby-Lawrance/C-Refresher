@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <memory>
-#include <math.h>
+#include <cmath>
 #include <chrono>
 #include <thread>
 #include <Windows.h>
@@ -18,6 +18,8 @@ int main()
     const auto sw = std::make_shared<ScreenWrapper>();
     const auto dimensions = sw->GetScreenCellDimensions();
     std::cout << "Dimensions: (" << dimensions.x << "," << dimensions.y << ")" << std::endl;
+    sw->height = dimensions.x;
+    sw->width = dimensions.x;
     int r;
     std::cin >> r;
     auto c = std::make_shared<Circle>();
